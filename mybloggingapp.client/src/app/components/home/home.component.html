@@ -1,0 +1,41 @@
+<div class="flex flex-col justify-center items-center px-20 h-80">
+  <h1 class="text-3xl font-bold text-purple-700">
+    Welcome to Blog App with Anu.
+  </h1>
+  <p class="w-6/12">
+    A blog is an informational website consisting of discrete, often informal diary-style text entries. Posts are typically displayed in reverse chronological order so that
+    the most recent post appears first, at the top of the web page.
+  </p>
+</div>
+<div class="flex flex-col items-center px-20">
+  <h2 class="text-3xl font-bold text-purple-700">Featured blogs</h2>
+  <div class="flex flex-wrap gap-4">
+    @for(blog of featuredBlogs;track $index){
+    <div class="w-3/12">
+
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>
+            {{blog.title}}
+          </mat-card-title>
+        </mat-card-header>
+        @if(blog.image){
+        <img mat-card-image [src]="blog.image" alt="Photo of a Shiba Inu">
+        }
+
+        <mat-card-content>
+          <p>
+            {{blog.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" [routerLink]="'/blog/'+blog.id">Read more..</button>
+        </mat-card-actions>
+      </mat-card>
+  </div>
+    }
+
+  </div>
+</div>
+
